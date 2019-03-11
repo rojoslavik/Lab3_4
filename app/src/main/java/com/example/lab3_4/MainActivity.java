@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
             public void sendMessage(View v ) {
                 Intent intent = new Intent(MainActivity.this, TimerActivity.class);
                 EditText editText = findViewById(R.id.aikaValinta);
-                Editable aika = editText.getText();
+                String aika = editText.getText().toString();
                 intent.putExtra(EXTRA_MESSAGE, aika);
                 startActivity(intent);
 

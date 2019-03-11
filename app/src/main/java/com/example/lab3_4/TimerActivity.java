@@ -11,7 +11,6 @@ import java.text.BreakIterator;
 
 public class TimerActivity extends AppCompatActivity {
     private TextView countdownText;
-    private long millisUntilFinished;
 
 
     @Override
@@ -21,19 +20,26 @@ public class TimerActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         String aika = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
-        long millisUntilFinished = Long.parseLong(aika);
+        int aikaJaljella = Integer.parseInt(aika) * 1000;
 
 
 
-        new CountDownTimer(30000, 1000) {
+
+
+
+        new CountDownTimer(aikaJaljella, 1000) {
 
             public void onTick(long millisUntilFinished) {
-                countdownText.setText();
+                TextView countdownText = findViewById(R.id.countdownText);
+
+                countdownText.setText(millisUntilFinished / 1000+"");
             }
 
             public void onFinish() {
                 MediaPlayer mediaPlayer = MediaPlayer.create(TimerActivity.this, R.raw.wolf);
-                Intent intent = new Intent(TimerActivity.this, MainActivity.class);
+                mediaPlayer.start();
+                Intent intentHaly = new Intent(TimerActivity.this, MainActivity.class);
+                startActivity(intentHaly);
             }
         }.start();
 
