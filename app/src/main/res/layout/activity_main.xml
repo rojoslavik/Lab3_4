@@ -6,29 +6,31 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteX="87dp"
-        tools:layout_editor_absoluteY="239dp">
+    <RelativeLayout android:id="@+id/RelativeLayout01"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        xmlns:android="http://schemas.android.com/apk/res/android">
 
         <EditText
             android:id="@+id/aikaValinta"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_above="@id/Start"
+            android:layout_centerInParent="true"
+            android:gravity="center_horizontal"
             android:ems="10"
-            android:inputType="number"
-            tools:layout_editor_absoluteX="99dp"
-            tools:layout_editor_absoluteY="215dp" />
+            android:inputType="number" />
 
         <Button
             android:id="@+id/Start"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
             android:onClick="sendMessage"
             android:text="START"
-            tools:layout_editor_absoluteX="156dp"
-            tools:layout_editor_absoluteY="600dp" />
-    </LinearLayout>
+/>
+    </RelativeLayout>
+
+
 </android.support.constraint.ConstraintLayout>
